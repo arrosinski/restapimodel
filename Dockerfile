@@ -15,6 +15,9 @@ RUN xcaddy build v2.6.4 \
 # Prod image
 FROM php:8.2-fpm-alpine AS app_php
 
+RUN docker-php-ext-install pdo_mysql
+
+
 # Allow to use development versions of Symfony
 ARG STABILITY="stable"
 ENV STABILITY ${STABILITY}
